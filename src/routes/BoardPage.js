@@ -19,13 +19,11 @@ export const BoardPage = withRouter(((props) => {
     }, []);
 
     const addTask = (id) => {
-        debugger;
         const newItem = prompt('add a new card');
         if(!newItem){
             alert('task name should not be empty!')
             return;
         }
-        debugger;
         let newTask ={...columns,...columns[id].items.push(newItem)}
         setColumns(newTask)
     };
