@@ -13,10 +13,15 @@ export const BoardPage = withRouter(((props) => {
     useEffect(() => {
         (async () => {
             setLoading(true);
-            // await fetchBoard();
+            await fetchBoard();
             setLoading(false);
         })();
     }, []);
+
+    const fetchBoard = () => {
+        const data = ( JSON.parse(sessionStorage.getItem('Boards')));
+        data&&setColumns(data);
+    };
 
     const addTask = (id) => {
         const newItem = prompt('add a new card');
@@ -26,6 +31,7 @@ export const BoardPage = withRouter(((props) => {
         }
         let newTask ={...columns,...columns[id].items.push(newItem)}
         setColumns(newTask)
+        sessionStorage.setItem('Boards', JSON.stringify(newTask));
     };
 
     const addColumn = ()=>{
@@ -41,7 +47,8 @@ export const BoardPage = withRouter(((props) => {
             }
         }
         let newColumn = {...columns ,...newCol }
-        setColumns(newColumn)
+        setColumns(newColumn);
+        sessionStorage.setItem('Boards', JSON.stringify(newColumn));
     }
 
         if (loading) {
