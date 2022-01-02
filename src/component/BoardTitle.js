@@ -2,24 +2,19 @@
 export const BoardTitle = ({
     title,
     handleBoardClick,
+    addition
 }) => (
     <div
-        role="button"
-        tabIndex="0"
+
         onKeyDown={() => {}}
         onClick={() => handleBoardClick()}
-        className={""}
-    >
-        <div className={""}>{title}</div>
+        className={"container"}>
+        <div className={addition?'button':'board'}>{title}</div>
             <div
-                role="button"
-                tabIndex="-1"
-                className=""
                 onClick={(e) => {
                     e.stopPropagation();
                 }}
-                onKeyDown={() => {}}
-            >
+                onKeyDown={() => {}}>
             </div>
     </div>
 );

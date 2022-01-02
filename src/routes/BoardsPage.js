@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { BoardTitle } from '../component/BoardTitle';
+import {useHistory} from "react-router-dom";
 
 export const BoardsPage =(() => {
     const [boards, setBoards] = useState({});
     const [loading, setLoading] = useState(true);
+    const history = useHistory();
 
     useEffect(() => {
         setLoading(true);
@@ -40,16 +42,17 @@ export const BoardsPage =(() => {
             <h1 className="">
                 Personal Boards
             </h1>
-            <div className="">
+            <div className="trello">
                 {boards.map((board) => (
                     <BoardTitle
                         key={board?.key}
                         title={board.title}
-                        handleBoardClick={() => console.log(board.key)}
+                        handleBoardClick={() => history.push(`boards/${board?.key}`)}
                     />
                 ))}
                 <BoardTitle
                     title="Add new board"
+                    addition={true}
                     handleBoardClick={() => setConfirmVisible()}
                 />
             </div>

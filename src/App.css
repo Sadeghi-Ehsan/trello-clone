@@ -1,0 +1,43 @@
+
+.trello {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+}
+.dragZone {
+    height: 100px;
+}
+.header {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px 4px;
+}
+.card {
+    margin-top: 5px;
+    border: 1px solid blue;
+}
+.column {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #aaaaaa;
+}
+.button {
+    background-color: #9ca1a4; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.board {
+    background-color: #116bb7; /* Green */
+    border: none;
+    color: white;
+    min-width: 200px;
+    min-height: 120px;
+    text-align: center;;
+    text-decoration: none;
+    display: inline-block;
+}
